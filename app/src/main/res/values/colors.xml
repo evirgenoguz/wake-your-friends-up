@@ -7,4 +7,50 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+
+
+    <color name="dark_gunmetal">#171A30</color>
+    <color name="independence">#4C4F60</color>
+    <color name="outer_space">#414355</color>
+    <color name="gray_x11">#B7B8BF</color>
+    <color name="spanish_gray">#9496A0</color>
+    <color name="dim_gray">#646674</color>
+    <color name="cosmic_cobalt">#29328C</color>
+    <color name="ghost_white">#FAFAFB</color>
+    <color name="middle_yellow">#FFE800</color>
+    <color name="charleston_green">#292929</color>
+    <color name="maximum_blue_purple">#ACB3FF</color>
+    <color name="light_ripple_color">#40FFFFFF</color>
+    <color name="cultured">#F6F6F7</color>
+    <color name="cultured_dark">#F5F5F5</color>
+    <color name="platinum">#E1E1E4</color>
+    <color name="bright_gray">#E8E8EA</color>
+    <color name="bright_gray_light">#ECEDEE</color>
+    <color name="cosmic_latte">#FFFDE6</color>
+    <color name="venetian_red">#F4013E</color>
+    <color name="piggy_pink">#FEE6EC</color>
+    <color name="outer_space_grayola">#313347</color>
+    <color name="chinese_black">#101222</color>
+    <color name="honeydew">#E6F9EA</color>
+    <color name="north_texas_green">#008D1C</color>
+    <color name="burgundy">#860122</color>
+    <color name="roman_silver">#82838F</color>
+    <color name="lavender_gray">#C5C6CB</color>
+    <color name="nickel">#727272</color>
+    <color name="auro_metal_saurus">#747683</color>
+    <color name="yankees_blue">#23253A</color>
+    <color name="black_coral">#5A5C6C</color>
+    <color name="deep_green">#006D16</color>
+    <color name="dark_jungle_green">#15182C</color>
+    <color name="bright_gray_dark">#ECEDEE</color>
+    <color name="outer_space_dark">#444444</color>
+    <color name="dim_gray_light">#666876</color>
+    <color name="dark_ripple_color">#26000000</color>
+    <color name="spanish_gray2">#90919C</color>
+    <color name="manatee">#9E9FA8</color>
+    <color name="davys_gray">#555555 </color>
+    <color name="light_silver">#D9D9D9</color>
+    <color name="carmine">#de0138</color>
+    <color name="alabama_crimson">#AD012C</color>
 </resources>

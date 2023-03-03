@@ -88,4 +88,8 @@ dependencies {
     implementation "com.google.firebase:firebase-auth:$firebase_auth_version"
     implementation "com.google.firebase:firebase-auth-ktx:$firebase_auth_version"
 
+    def material_design_version = "1.8.0"
+    //Material Design
+    implementation "com.google.android.material:material:$material_design_version"
+
 }

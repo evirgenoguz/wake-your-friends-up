@@ -3,4 +3,16 @@
     <!-- Error strings -->
     <string name="not_connected_try_again">You are currently not connected to the internet. Please try again later.</string>
     <string name="general_error_message">An error occured while performing network request.</string>
+    <string name="start_signup_description">Sign up or log in to wake up \n at the same time as your friends</string>
+    <string name="start_wake_up_with_your_friends">Wake Up With Your Friends</string>
+    <string name="start_dont_have_an_account">Don\'t have an account?</string>
+    <string name="sign_in">Sign In</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="signup_are_you_ready">Are you Ready to \n wake up early?</string>
+    <string name="e_mail">E-mail</string>
+    <string name="signup_firstname_and_lastname">Firstname and Lastname</string>
+    <string name="password">Password</string>
+    <string name="signup_have_account">Do you have an account</string>
+    <string name="sign_in_dont_have_an_account">Don\'t have an account?</string>
+
 </resources>

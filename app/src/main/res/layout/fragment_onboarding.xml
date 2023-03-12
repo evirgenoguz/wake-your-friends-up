@@ -21,13 +21,13 @@
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent" />
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/ivNextOrFinish"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <View
+        android:id="@+id/vNextOrFinish"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
         android:layout_margin="@dimen/margin_8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:src="@drawable/ic_arrow_circle_right" />
+        tools:background="@drawable/ic_arrow_circle_right" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

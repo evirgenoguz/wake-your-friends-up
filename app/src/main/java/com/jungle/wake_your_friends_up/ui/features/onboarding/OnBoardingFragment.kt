@@ -19,12 +19,13 @@ class OnBoardingFragment : BaseFragment<FragmentOnboardingBinding>() {
     private val onBoardingAdapter by lazy {
         OnBoardingAdapter(this)
     }
+
     override fun setupUi() {
         setupViewPager()
     }
 
 
-    private fun setupViewPager(){
+    private fun setupViewPager() {
         binding.viewPager.adapter = onBoardingAdapter
         // A performance enhancement for viewpager
         binding.viewPager.offscreenPageLimit = 2
@@ -40,18 +41,19 @@ class OnBoardingFragment : BaseFragment<FragmentOnboardingBinding>() {
                 binding.indicator.updateProgress(progress)
 
                 // Determine is user in last page or not
-                val isLastPageOrNot = position ==  onBoardingAdapter.itemCount - 1
+                val isLastPageOrNot = position == onBoardingAdapter.itemCount - 1
                 // determine drawable id according to isLastPageOrNot variable
                 val nextOrFinishDrawableId = if (isLastPageOrNot)
                     R.drawable.ic_check_circle
                 else
                     R.drawable.ic_arrow_circle_right
                 // set next or finish drawable
-                val nextOrFinishDrawable = ContextCompat.getDrawable(requireContext(), nextOrFinishDrawableId)
-                binding.ivNextOrFinish.setImageDrawable(nextOrFinishDrawable)
+                val nextOrFinishDrawable =
+                    ContextCompat.getDrawable(requireContext(), nextOrFinishDrawableId)
+                binding.vNextOrFinish.background = nextOrFinishDrawable
 
                 // next or finish button listener
-                binding.ivNextOrFinish.setOnClickListener {
+                binding.vNextOrFinish.setOnClickListener {
                     if (isLastPageOrNot)
                         onFinishButtonClick()
                     else
@@ -62,12 +64,9 @@ class OnBoardingFragment : BaseFragment<FragmentOnboardingBinding>() {
     }
 
     private fun onNextButtonClick(position: Int) {
-        // the if block runs if fake drag interrupt by
-        // user and it changes current position manually
-        if (! binding.viewPager.beginFakeDrag()) {
-            val nextPosition = position + 1
-            binding.viewPager.setCurrentItem(nextPosition, true)
-        }
+        // it changes current position manually
+        val nextPosition = position + 1
+        binding.viewPager.setCurrentItem(nextPosition, true)
     }
 
     private fun onFinishButtonClick() {

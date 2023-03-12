@@ -9,6 +9,10 @@ import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
 
 /**
+ * An abstract base class for fragments. It has [ViewBinding]
+ * and abstract [setupUi] function to allow developer
+ * configure ui.
+ *
  * Created by Burak Taşcı on 20.02.2023.
  */
 abstract class BaseFragment<VB : ViewBinding> : Fragment() {

@@ -9,6 +9,13 @@ import com.jungle.wake_your_friends_up.ui.features.onboarding.OnBoardingViewMode
 import com.jungle.wake_your_friends_up.ui.features.onboarding.pages.DynamicOnBoardingFragment
 
 /**
+ *
+ * It is an adapter for managing on boarding screen's
+ * view pager. It has the fragments it will use inside.
+ * It uses [DynamicOnBoardingFragment] for pages and uses
+ * bundle objects for data transfer. The data transfer object
+ * is [OnBoardingViewModel.OnBoardingModel].
+ *
  * Created by Burak Taşcı on 3.03.2023.
  */
 class OnBoardingAdapter(fragment: Fragment) : FragmentStateAdapter(fragment) {
@@ -21,7 +28,7 @@ class OnBoardingAdapter(fragment: Fragment) : FragmentStateAdapter(fragment) {
                     KEY_ONBOARDING_MODEL to OnBoardingViewModel.OnBoardingModel(
                         contentImage = BitmapFactory.decodeResource(
                             fragment.resources,
-                            R.drawable.png_red_alarm_clock_in_hurry
+                            R.drawable.img_red_alarm_clock_in_hurry
                         ),
                         title = fragment.requireContext().getString(R.string.onboarding_first_page)
                     )
@@ -32,7 +39,7 @@ class OnBoardingAdapter(fragment: Fragment) : FragmentStateAdapter(fragment) {
                     KEY_ONBOARDING_MODEL to OnBoardingViewModel.OnBoardingModel(
                         contentImage = BitmapFactory.decodeResource(
                             fragment.resources,
-                            R.drawable.png_yellow_alarm_clock_with_books
+                            R.drawable.img_yellow_alarm_clock_with_books
                         ),
                         title = fragment.requireContext().getString(R.string.onboarding_second_page)
                     )
@@ -43,7 +50,7 @@ class OnBoardingAdapter(fragment: Fragment) : FragmentStateAdapter(fragment) {
                     KEY_ONBOARDING_MODEL to OnBoardingViewModel.OnBoardingModel(
                         contentImage = BitmapFactory.decodeResource(
                             fragment.resources,
-                            R.drawable.png_happy_kids_with_alarms
+                            R.drawable.img_happy_kids_with_alarms
                         ),
                         title = fragment.requireContext().getString(R.string.onboarding_third_page)
                     )

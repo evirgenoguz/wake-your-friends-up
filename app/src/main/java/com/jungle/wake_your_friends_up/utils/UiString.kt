@@ -7,6 +7,10 @@ import kotlinx.parcelize.Parcelize
 import kotlinx.parcelize.RawValue
 
 /**
+ * A helper class to create usable string objects
+ * from ui free layers. The [UiString] object
+ * can be use by any ui layer.
+ *
  * Created by Burak Taşcı on 3.03.2023.
  */
 @Parcelize

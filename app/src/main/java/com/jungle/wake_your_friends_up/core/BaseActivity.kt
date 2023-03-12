@@ -5,6 +5,12 @@ import android.view.LayoutInflater
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewbinding.ViewBinding
 
+/**
+ * An abstract base class to determine what activities should have in
+ * general usage. It has some simple functions and ViewBinding
+ * configuration.
+ *
+ */
 abstract class BaseActivity<VB : ViewBinding>() : AppCompatActivity() {
 
 

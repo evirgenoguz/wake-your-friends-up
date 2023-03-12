@@ -9,6 +9,10 @@ import androidx.core.content.ContextCompat
 import kotlinx.parcelize.Parcelize
 
 /**
+ * A helper class to create usable drawable objects
+ * from ui free layers. The [UiDrawable] object
+ * can be use by any ui layer.
+ *
  * Created by Burak Taşcı on 3.03.2023.
  */
 @Parcelize

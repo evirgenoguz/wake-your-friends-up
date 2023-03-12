@@ -21,10 +21,16 @@ class DynamicOnBoardingFragment : BaseFragment<FragmentDynamicOnboardingBinding>
     }
 
     private fun setupViewsWithArguments() {
-        val model = requireArguments().getParcelableModel<OnBoardingViewModel.OnBoardingModel>(KEY_ONBOARDING_MODEL)
-        model?.let {
-            binding.ivOnBoarding.setImageBitmap(it.contentImage)
-            binding.tvOnBoarding.text = it.title
+        // retrieve model for fragment layout configuration
+        // with arguments bundle.
+        requireArguments().getParcelableModel<OnBoardingViewModel.OnBoardingModel>(
+            KEY_ONBOARDING_MODEL
+        )?.let { model ->
+            // sets title and image
+            with(binding) {
+                ivOnBoarding.setImageBitmap(model.contentImage)
+                tvOnBoarding.text = model.title
+            }
         }
     }
 

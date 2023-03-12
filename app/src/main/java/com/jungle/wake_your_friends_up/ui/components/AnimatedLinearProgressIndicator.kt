@@ -11,6 +11,10 @@ import com.jungle.wake_your_friends_up.databinding.ViewAnimatedLinearProgressInd
 
 
 /**
+ *
+ * A view to have animation for [com.google.android.material.progressindicator.LinearProgressIndicator].
+ * It animates between progress changes.
+ *
  * Created by Burak Taşcı on 3.03.2023.
  */
 class AnimatedLinearProgressIndicator @JvmOverloads constructor(
@@ -28,14 +32,17 @@ class AnimatedLinearProgressIndicator @JvmOverloads constructor(
     private var progress: Int = 0
 
     init {
+        // sets initial progress value
         binding.linearProgressIndicator.progress = progress
     }
 
     fun updateProgress(target: Int) {
+        // Animation declaration
         val animation = ObjectAnimator.ofInt(binding.linearProgressIndicator, "progress", progress, target)
         animation.duration = 1000 // 3.5 second
         animation.interpolator = DecelerateInterpolator()
         animation.start()
+        // Sets the new progress end of the animation
         animation.doOnEnd {
             progress = target
         }

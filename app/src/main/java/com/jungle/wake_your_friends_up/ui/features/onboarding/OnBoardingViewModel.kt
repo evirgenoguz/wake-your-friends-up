@@ -17,6 +17,6 @@ class OnBoardingViewModel @Inject constructor() : BaseViewModel() {
     @Parcelize
     data class OnBoardingModel(
         val title: String,
-        val contentImage: Bitmap,
+        val contentImage: Bitmap
     ): Parcelable
 }

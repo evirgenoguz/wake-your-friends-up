@@ -10,6 +10,9 @@ import com.jungle.wake_your_friends_up.R
  * Created by Burak Taşcı on 2.03.2023.
  */
 
+/**
+ * It finds the NavController of FragmentContainerView object which has passed id.
+ */
 fun AppCompatActivity.findNavController(
     @IdRes id: Int = R.id.nav_host_fragment_content
 ): NavController {

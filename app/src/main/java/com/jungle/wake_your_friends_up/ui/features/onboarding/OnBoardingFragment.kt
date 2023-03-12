@@ -16,7 +16,9 @@ class OnBoardingFragment : BaseFragment<FragmentOnboardingBinding>() {
     override val bindingInflater: (LayoutInflater) -> FragmentOnboardingBinding
         get() = FragmentOnboardingBinding::inflate
 
-    private val onBoardingAdapter = OnBoardingAdapter(this)
+    private val onBoardingAdapter by lazy {
+        OnBoardingAdapter(this)
+    }
     override fun setupUi() {
         setupViewPager()
     }

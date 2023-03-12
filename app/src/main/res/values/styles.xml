@@ -23,13 +23,13 @@
 
         <!-- The splash screen icon properties -->
         <item name="windowSplashScreenAnimatedIcon">@drawable/ic_alarm_clock</item>
-        <item name="windowSplashScreenBackground">@color/cultured</item>
+        <item name="windowSplashScreenBackground">@color/middle_yellow</item>
 
         <!-- Status bar color -->
-        <item name="android:statusBarColor">@color/cultured</item>
+        <item name="android:statusBarColor">@color/black</item>
 
         <!-- The default navigation color for splash. -->
-        <item name="android:navigationBarColor">@color/cultured</item>
+        <item name="android:navigationBarColor">@color/black</item>
     </style>
 
     <!-- Actual activity themes -->

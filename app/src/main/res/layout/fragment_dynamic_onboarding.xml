@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
-    android:orientation="vertical"
     tools:context=".ui.features.onboarding.pages.DynamicOnBoardingFragment">
 
 
@@ -17,7 +15,7 @@
         app:layout_constraintBottom_toTopOf="@id/tvOnBoarding"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="packed"
-        tools:src="@drawable/png_happy_kids_with_alarms" />
+        tools:src="@drawable/img_happy_kids_with_alarms" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvOnBoarding"
@@ -32,4 +30,4 @@
         app:layout_constraintTop_toBottomOf="@id/ivOnBoarding"
         tools:text="@string/onboarding_first_page" />
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

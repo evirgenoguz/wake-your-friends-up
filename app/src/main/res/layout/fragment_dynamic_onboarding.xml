@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".ui.features.onboarding.pages.DynamicOnBoardingFragment">
+
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivOnBoarding"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        app:layout_constraintBottom_toTopOf="@id/tvOnBoarding"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed"
+        tools:src="@drawable/png_happy_kids_with_alarms" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvOnBoarding"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/margin_8dp"
+        android:gravity="center"
+        android:text="@string/hello_blank_fragment"
+        android:textColor="@color/dark_gunmetal"
+        android:textSize="@dimen/textsize_24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ivOnBoarding"
+        tools:text="@string/onboarding_first_page" />
+
+</LinearLayout>

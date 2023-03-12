@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewbinding.ViewBinding
 
-abstract class BaseActivity<VB : ViewBinding> : AppCompatActivity() {
+abstract class BaseActivity<VB : ViewBinding>() : AppCompatActivity() {
 
 
     // The local _binding parameter which is only available
@@ -34,6 +34,7 @@ abstract class BaseActivity<VB : ViewBinding> : AppCompatActivity() {
         preOnCreate()
         super.onCreate(savedInstanceState)
         _binding = bindingInflater.invoke(layoutInflater)
+        setContentView(binding.root)
         setupUi()
     }
 }

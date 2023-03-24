@@ -1,0 +1,39 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="Base.Theme.WakeYourFriendsUp" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <!-- Navigation bar color. -->
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+    </style>
+
+
+    <!-- Splash screen theme -->
+    <style name="Base.Theme.Splash" parent="Theme.SplashScreen">
+        <!-- Activity's actual theme -->
+        <item name="postSplashScreenTheme">@style/Theme.WakeYourFriendsUp</item>
+
+        <!-- The splash screen icon properties -->
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_alarm_clock</item>
+        <item name="windowSplashScreenBackground">@color/middle_yellow</item>
+
+        <!-- Status bar color -->
+        <item name="android:statusBarColor">@color/black</item>
+
+        <!-- The default navigation color for splash. -->
+        <item name="android:navigationBarColor">@color/black</item>
+    </style>
+
+    <!-- Actual activity themes -->
+    <style name="Theme.WakeYourFriendsUp" parent="Base.Theme.WakeYourFriendsUp" />
+    <style name="Theme.Splash" parent="Base.Theme.Splash" />
+
+</resources>

@@ -6,27 +6,29 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.jungle.wake_your_friends_up.R
+import com.jungle.wake_your_friends_up.core.BaseFragment
+import com.jungle.wake_your_friends_up.databinding.FragmentStartBinding
 
-class StartFragment : Fragment() {
+class StartFragment : BaseFragment<FragmentStartBinding>() {
+    override val bindingInflater: (LayoutInflater) -> FragmentStartBinding
+        get() = FragmentStartBinding::inflate
 
-    companion object {
-        fun newInstance() = StartFragment()
+    override fun setupUi() {
+        initListeners()
     }
 
-    private lateinit var viewModel: StartViewModel
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_start, container, false)
+    private fun initListeners(){
+        binding.apply {
+            btnLogin.setOnClickListener {
+                findNavController().navigate(R.id.action_startFragment_to_loginFragment)
+            }
+            tvRegister.setOnClickListener {
+                findNavController().navigate(R.id.action_startFragment_to_registerFragment)
+            }
+        }
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(StartViewModel::class.java)
-        // TODO: Use the ViewModel
-    }
 
 }

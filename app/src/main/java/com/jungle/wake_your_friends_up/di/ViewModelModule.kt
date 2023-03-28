@@ -24,4 +24,5 @@ object ViewModelModule {
         networkManager: NetworkManager
     ): SampleRepository =
         SampleRepository(apiService, networkManager)
+    
 }

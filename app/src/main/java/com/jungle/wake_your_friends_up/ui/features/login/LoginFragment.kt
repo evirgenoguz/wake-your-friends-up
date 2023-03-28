@@ -12,7 +12,7 @@ import com.jungle.wake_your_friends_up.core.BaseFragment
 import com.jungle.wake_your_friends_up.databinding.FragmentLoginBinding
 
 class LoginFragment : BaseFragment<FragmentLoginBinding>() {
-    override val bindingInflater: (LayoutInflater) -> FragmentLoginBinding
+    override val bindingInflater: (inflater: LayoutInflater) -> FragmentLoginBinding
         get() = FragmentLoginBinding::inflate
 
     override fun setupUi() {

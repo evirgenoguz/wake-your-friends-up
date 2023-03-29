@@ -46,7 +46,6 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>() {
                             "${it.body.fullName} successfully auth",
                             Toast.LENGTH_LONG
                         ).show()
-
                     }
                     is NetworkResult.Error -> {
                         Log.e("Register Fragment", it.error.message)

@@ -21,6 +21,9 @@ class LoginViewModel@Inject constructor(
     private val _login = MutableLiveData<NetworkResult<UserResponseModel>>()
     val login: LiveData<NetworkResult<UserResponseModel>> = _login
 
+    private val _resetPassword = MutableLiveData<NetworkResult<UserResponseModel>>()
+    val resetPassword: LiveData<NetworkResult<UserResponseModel>> = _resetPassword
+
     fun login(email: String, password: String){
         viewModelScope.launch {
             _login.postValue(NetworkResult.Loading)
@@ -30,6 +33,19 @@ class LoginViewModel@Inject constructor(
                 }
                 .addOnFailureListener {
                     _login.postValue(NetworkResult.Error(ServerErrorModel(it.localizedMessage ?: "An error occurred!")))
+                }
+        }
+    }
+
+    fun resetPassword(email: String){
+        viewModelScope.launch {
+            _resetPassword.postValue(NetworkResult.Loading)
+            authRepository.resetPassword(email)
+                .addOnSuccessListener {
+                    _resetPassword.postValue(NetworkResult.Success(UserResponseModel(email = email)))
+                }
+                .addOnFailureListener {
+                    _resetPassword.postValue(NetworkResult.Error(ServerErrorModel(it.localizedMessage ?: "An error occurred!")))
                 }
         }
     }

@@ -16,6 +16,7 @@ import com.jungle.wake_your_friends_up.core.BaseFragment
 import com.jungle.wake_your_friends_up.data.NetworkResult
 import com.jungle.wake_your_friends_up.databinding.FragmentLoginBinding
 import com.jungle.wake_your_friends_up.ext.observeLiveData
+import com.jungle.wake_your_friends_up.ui.dialog.setupBottomSheetDialog
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -29,6 +30,29 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
     override fun setupUi() {
         initListeners()
         observeLoginLiveData()
+        observeResetPasswordLiveData()
+    }
+
+    private fun observeResetPasswordLiveData() {
+        lifecycleScope.launchWhenStarted {
+            observeLiveData(viewModel.resetPassword){
+                when (it) {
+                    is NetworkResult.Loading -> {
+
+                    }
+                    is NetworkResult.Success -> {
+                        Toast.makeText(
+                            context,
+                            "Reset link was sent to ${it.body.email}",
+                            Toast.LENGTH_LONG
+                        ).show()
+                    }
+                    is NetworkResult.Error -> {
+                        Log.e("Login Fragment", it.error.message)
+                    }
+                }
+            }
+        }
     }
 
     private fun observeLoginLiveData() {
@@ -39,7 +63,6 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
 
                     }
                     is NetworkResult.Success -> {
-                        Log.d("test", it.body.fullName)
                         Toast.makeText(
                             context,
                             "${it.body.fullName} successfully login",
@@ -47,7 +70,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
                         ).show()
                     }
                     is NetworkResult.Error -> {
-                        Log.e("Register Fragment", it.error.message)
+                        Log.e("Login Fragment", it.error.message)
                     }
                 }
             }
@@ -65,6 +88,15 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
             fabBack.setOnClickListener {
                 findNavController().navigateUp()
             }
+            tvForgotPassword.setOnClickListener {
+                resetPassword()
+            }
+        }
+    }
+
+    private fun resetPassword() {
+        setupBottomSheetDialog { email ->
+            viewModel.resetPassword(email)
         }
     }
 

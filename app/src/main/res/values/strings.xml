@@ -34,5 +34,12 @@
 
     <!-- Login Fragment Strings -->
     <string name="sign_in_dont_have_an_account">Don\'t have an account?</string>
+    <string name="login_forgot_password">Forgot Password?</string>
+
+    <!-- Reset Dialog Strings -->
+    <string name="reset_pw_reset_password">Reset Password</string>
+    <string name="reset_pw_we_will_send_email">We will send you the password reset link to your email</string>
+    <string name="reset_pw_cancel">Cancel</string>
+    <string name="reset_pw_send">Send</string>
 
 </resources>

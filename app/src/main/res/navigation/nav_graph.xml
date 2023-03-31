@@ -34,7 +34,7 @@
     <fragment
         android:id="@+id/registerFragment"
         android:name="com.jungle.wake_your_friends_up.ui.features.register.RegisterFragment"
-        android:label="fragment_sign_up"
+        android:label="fragment_register"
         tools:layout="@layout/fragment_register" >
         <action
             android:id="@+id/action_registerFragment_to_loginFragment"
@@ -43,7 +43,7 @@
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.jungle.wake_your_friends_up.ui.features.login.LoginFragment"
-        android:label="fragment_sign_in"
+        android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
         <action
             android:id="@+id/action_loginFragment_to_registerFragment"

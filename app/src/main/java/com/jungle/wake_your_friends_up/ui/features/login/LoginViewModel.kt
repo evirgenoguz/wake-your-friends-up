@@ -1,6 +1,7 @@
 package com.jungle.wake_your_friends_up.ui.features.login
 
 import android.provider.ContactsContract.CommonDataKinds.Email
+import android.util.Patterns
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -14,7 +15,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class LoginViewModel@Inject constructor(
+class LoginViewModel @Inject constructor(
     private val authRepository: AuthRepository
 ) : ViewModel() {
 
@@ -29,12 +30,13 @@ class LoginViewModel@Inject constructor(
             _login.postValue(NetworkResult.Loading)
             authRepository.login(email, password)
                 .addOnSuccessListener {
-                    _login.postValue(NetworkResult.Success(UserResponseModel(email = email)))
+                    _login.postValue(NetworkResult.Success(UserResponseModel(uid = it.user!!.uid ,email = email)))
                 }
                 .addOnFailureListener {
                     _login.postValue(NetworkResult.Error(ServerErrorModel(it.localizedMessage ?: "An error occurred!")))
                 }
         }
+        Patterns.EMAIL_ADDRESS
     }
 
     fun resetPassword(email: String){

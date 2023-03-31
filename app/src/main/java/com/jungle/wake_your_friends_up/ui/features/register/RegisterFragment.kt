@@ -40,10 +40,10 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>() {
 
                     }
                     is NetworkResult.Success -> {
-                        Log.d("test", it.body.fullName)
                         Toast.makeText(
                             context,
-                            "${it.body.fullName} successfully auth",
+                            //TODO: get uid and navigate to inside app
+                            "${it.body.email} successfully auth",
                             Toast.LENGTH_LONG
                         ).show()
                     }
@@ -61,7 +61,7 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>() {
                 register()
             }
             tvLogin.setOnClickListener {
-                findNavController().navigate(R.id.action_registerFragment_to_loginFragment)
+                findNavController().navigate(RegisterFragmentDirections.actionRegisterFragmentToLoginFragment())
             }
             fabBack.setOnClickListener {
                 findNavController().navigateUp()
@@ -72,7 +72,6 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>() {
     private fun register() {
         binding.apply {
             val userRequestModel = UserRequestModel(
-                tietFullName.text.toString().trim(),
                 tietEmail.text.toString().trim(),
                 tietPassword.text.toString().trim()
             )

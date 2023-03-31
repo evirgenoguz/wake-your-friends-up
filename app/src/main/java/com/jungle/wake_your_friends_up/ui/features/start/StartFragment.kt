@@ -22,10 +22,10 @@ class StartFragment : BaseFragment<FragmentStartBinding>() {
     private fun initListeners(){
         binding.apply {
             btnLogin.setOnClickListener {
-                findNavController().navigate(R.id.action_startFragment_to_loginFragment)
+                findNavController().navigate(StartFragmentDirections.actionStartFragmentToLoginFragment())
             }
             tvRegister.setOnClickListener {
-                findNavController().navigate(R.id.action_startFragment_to_registerFragment)
+                findNavController().navigate(StartFragmentDirections.actionStartFragmentToRegisterFragment())
             }
         }
     }

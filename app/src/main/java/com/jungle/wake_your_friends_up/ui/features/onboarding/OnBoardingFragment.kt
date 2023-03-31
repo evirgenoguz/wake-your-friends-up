@@ -72,7 +72,7 @@ class OnBoardingFragment : BaseFragment<FragmentOnboardingBinding>() {
 
     private fun onFinishButtonClick() {
         binding.vNextOrFinish.setOnClickListener{
-            findNavController().navigate(R.id.action_onBoardingFragment_to_startFragment)
+            findNavController().navigate(OnBoardingFragmentDirections.actionOnBoardingFragmentToStartFragment())
         }
     }
 }

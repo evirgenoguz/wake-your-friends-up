@@ -5,6 +5,7 @@
     <string name="e_mail">E-mail</string>
     <string name="login">Login</string>
     <string name="register">Register</string>
+    <string name="back_button">Back Button</string>
 
 
     <!-- Error Strings -->
@@ -33,7 +34,7 @@
     <string name="register_do_you_have_an_account">Do you have an account</string>
 
     <!-- Login Fragment Strings -->
-    <string name="sign_in_dont_have_an_account">Don\'t have an account?</string>
+    <string name="login_dont_have_an_account">Don\'t have an account?</string>
     <string name="login_forgot_password">Forgot Password?</string>
 
     <!-- Reset Dialog Strings -->
@@ -41,5 +42,6 @@
     <string name="reset_pw_we_will_send_email">We will send you the password reset link to your email</string>
     <string name="reset_pw_cancel">Cancel</string>
     <string name="reset_pw_send">Send</string>
+
 
 </resources>

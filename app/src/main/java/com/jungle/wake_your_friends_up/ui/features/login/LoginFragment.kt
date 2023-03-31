@@ -1,22 +1,20 @@
 package com.jungle.wake_your_friends_up.ui.features.login
 
-import androidx.lifecycle.ViewModelProvider
-import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.widget.Button
+import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.jungle.wake_your_friends_up.R
 import com.jungle.wake_your_friends_up.core.BaseFragment
 import com.jungle.wake_your_friends_up.data.NetworkResult
 import com.jungle.wake_your_friends_up.databinding.FragmentLoginBinding
 import com.jungle.wake_your_friends_up.ext.observeLiveData
-import com.jungle.wake_your_friends_up.ui.dialog.setupBottomSheetDialog
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -63,9 +61,10 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
 
                     }
                     is NetworkResult.Success -> {
+                        // TODO: navigate inside the app with uid
                         Toast.makeText(
                             context,
-                            "${it.body.fullName} successfully login",
+                            "${it.body.email} successfully login",
                             Toast.LENGTH_LONG
                         ).show()
                     }
@@ -83,7 +82,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
                 login()
             }
             tvRegister.setOnClickListener {
-                findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
+                findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToRegisterFragment())
             }
             fabBack.setOnClickListener {
                 findNavController().navigateUp()
@@ -105,12 +104,34 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
             val email = tietEmail.text.toString().trim()
             val password = tietPassword.text.toString().trim()
 
-
             viewModel.login(email, password)
         }
-
 
     }
 
 
+}
+
+private fun LoginFragment.setupBottomSheetDialog(
+    onSendClick: (String) -> Unit
+) {
+    val dialog = BottomSheetDialog(requireContext())
+    val view = layoutInflater.inflate(R.layout.dialog_reset_password, null)
+    dialog.setContentView(view)
+    dialog.behavior.state = BottomSheetBehavior.STATE_EXPANDED
+    dialog.show()
+
+    val etEmail= view.findViewById<EditText>(R.id.etEmailForResetPassword)
+    val btnSend = view.findViewById<Button>(R.id.btnSendResetPassword)
+    val btnCancel = view.findViewById<Button>(R.id.btnCancelResetPassword)
+
+    btnSend.setOnClickListener {
+        val email = etEmail.text.toString().trim()
+        onSendClick(email)
+        dialog.dismiss()
+    }
+
+    btnCancel.setOnClickListener {
+        dialog.dismiss()
+    }
 }

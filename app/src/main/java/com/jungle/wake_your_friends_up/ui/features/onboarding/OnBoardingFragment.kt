@@ -17,6 +17,8 @@ class OnBoardingFragment : BaseFragment<FragmentOnboardingBinding>() {
     override val bindingInflater: (LayoutInflater) -> FragmentOnboardingBinding
         get() = FragmentOnboardingBinding::inflate
 
+
+    // fixme this should be lateinit to avoid crash
     private val onBoardingAdapter by lazy {
         OnBoardingAdapter(this)
     }

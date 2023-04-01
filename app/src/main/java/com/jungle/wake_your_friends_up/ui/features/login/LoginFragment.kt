@@ -113,7 +113,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
 
 
 }
-
+// todo this should be a separated bottom sheet dialog fragment
 private fun LoginFragment.setupBottomSheetDialog(
     onSendClick: (String) -> Unit
 ) {

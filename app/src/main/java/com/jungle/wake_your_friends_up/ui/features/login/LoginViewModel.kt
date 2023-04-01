@@ -1,6 +1,5 @@
 package com.jungle.wake_your_friends_up.ui.features.login
 
-import android.provider.ContactsContract.CommonDataKinds.Email
 import android.util.Patterns
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -8,7 +7,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.jungle.wake_your_friends_up.data.NetworkResult
 import com.jungle.wake_your_friends_up.data.ServerErrorModel
-import com.jungle.wake_your_friends_up.data.model.response.UserResponseModel
+import com.jungle.wake_your_friends_up.data.model.request.LoginRequestModel
+import com.jungle.wake_your_friends_up.data.model.request.ResetPasswordRequestModel
+import com.jungle.wake_your_friends_up.data.model.response.LoginResponseModel
 import com.jungle.wake_your_friends_up.data.repository.AuthRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -19,35 +20,62 @@ class LoginViewModel @Inject constructor(
     private val authRepository: AuthRepository
 ) : ViewModel() {
 
-    private val _login = MutableLiveData<NetworkResult<UserResponseModel>>()
-    val login: LiveData<NetworkResult<UserResponseModel>> = _login
+    private val _login = MutableLiveData<NetworkResult<LoginResponseModel>>()
+    val login: LiveData<NetworkResult<LoginResponseModel>> = _login
 
-    private val _resetPassword = MutableLiveData<NetworkResult<UserResponseModel>>()
-    val resetPassword: LiveData<NetworkResult<UserResponseModel>> = _resetPassword
+    private val _resetPassword = MutableLiveData<NetworkResult<Unit>>()
+    val resetPassword: LiveData<NetworkResult<Unit>> = _resetPassword
 
-    fun login(email: String, password: String){
+    fun login(loginRequestModel: LoginRequestModel) {
         viewModelScope.launch {
             _login.postValue(NetworkResult.Loading)
-            authRepository.login(email, password)
-                .addOnSuccessListener {
-                    _login.postValue(NetworkResult.Success(UserResponseModel(uid = it.user!!.uid ,email = email)))
+            authRepository.login(loginRequestModel)
+                .addOnSuccessListener { authResult ->
+                    authResult.user?.let { user ->
+                        val uid = user.uid
+                        _login.postValue(NetworkResult.Success(LoginResponseModel(uid = uid)))
+                    } ?: kotlin.run {
+                        _login.postValue(
+                            NetworkResult.Error(
+                                ServerErrorModel(
+                                    "Cannot access user data."
+                                )
+                            )
+                        )
+                    }
                 }
                 .addOnFailureListener {
-                    _login.postValue(NetworkResult.Error(ServerErrorModel(it.localizedMessage ?: "An error occurred!")))
+                    _login.postValue(
+                        NetworkResult.Error(
+                            ServerErrorModel(
+                                it.localizedMessage ?: "An error occurred!"
+                            )
+                        )
+                    )
                 }
         }
         Patterns.EMAIL_ADDRESS
     }
 
-    fun resetPassword(email: String){
+    fun resetPassword(resetPasswordRequestModel: ResetPasswordRequestModel) {
         viewModelScope.launch {
             _resetPassword.postValue(NetworkResult.Loading)
-            authRepository.resetPassword(email)
+            authRepository.resetPassword(resetPasswordRequestModel)
                 .addOnSuccessListener {
-                    _resetPassword.postValue(NetworkResult.Success(UserResponseModel(email = email)))
+                    _resetPassword.postValue(
+                        NetworkResult.Success(
+                            Unit
+                        )
+                    )
                 }
                 .addOnFailureListener {
-                    _resetPassword.postValue(NetworkResult.Error(ServerErrorModel(it.localizedMessage ?: "An error occurred!")))
+                    _resetPassword.postValue(
+                        NetworkResult.Error(
+                            ServerErrorModel(
+                                it.localizedMessage ?: "An error occurred!"
+                            )
+                        )
+                    )
                 }
         }
     }

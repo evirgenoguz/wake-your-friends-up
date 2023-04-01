@@ -13,6 +13,8 @@ import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.jungle.wake_your_friends_up.R
 import com.jungle.wake_your_friends_up.core.BaseFragment
 import com.jungle.wake_your_friends_up.data.NetworkResult
+import com.jungle.wake_your_friends_up.data.model.request.LoginRequestModel
+import com.jungle.wake_your_friends_up.data.model.request.ResetPasswordRequestModel
 import com.jungle.wake_your_friends_up.databinding.FragmentLoginBinding
 import com.jungle.wake_your_friends_up.ext.observeLiveData
 import dagger.hilt.android.AndroidEntryPoint
@@ -41,7 +43,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
                     is NetworkResult.Success -> {
                         Toast.makeText(
                             context,
-                            "Reset link was sent to ${it.body.email}",
+                            "Reset link was sent to",
                             Toast.LENGTH_LONG
                         ).show()
                     }
@@ -64,7 +66,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
                         // TODO: navigate inside the app with uid
                         Toast.makeText(
                             context,
-                            "${it.body.email} successfully login",
+                            "${it.body.uid} successfully login",
                             Toast.LENGTH_LONG
                         ).show()
                     }
@@ -95,7 +97,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
 
     private fun resetPassword() {
         setupBottomSheetDialog { email ->
-            viewModel.resetPassword(email)
+            viewModel.resetPassword(ResetPasswordRequestModel(email))
         }
     }
 
@@ -104,7 +106,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
             val email = tietEmail.text.toString().trim()
             val password = tietPassword.text.toString().trim()
 
-            viewModel.login(email, password)
+            viewModel.login(LoginRequestModel(email, password))
         }
 
     }

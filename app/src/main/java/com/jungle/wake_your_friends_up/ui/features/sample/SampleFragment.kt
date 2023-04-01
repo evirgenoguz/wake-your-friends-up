@@ -7,6 +7,7 @@ import com.google.android.material.snackbar.Snackbar
 import com.jungle.wake_your_friends_up.core.BaseFragment
 import com.jungle.wake_your_friends_up.data.model.request.SampleRequestModel
 import com.jungle.wake_your_friends_up.databinding.FragmentSampleBinding
+import com.jungle.wake_your_friends_up.ext.observeLiveData
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -29,6 +30,10 @@ class SampleFragment : BaseFragment<FragmentSampleBinding>() {
                     sample = "Sample request text"
                 )
             )
+        }
+
+        observeLiveData(viewModel.sampleLiveData){
+
         }
     }
 

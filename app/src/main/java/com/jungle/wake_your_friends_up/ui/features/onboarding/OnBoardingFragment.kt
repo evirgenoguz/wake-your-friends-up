@@ -2,6 +2,7 @@ package com.jungle.wake_your_friends_up.ui.features.onboarding
 
 import android.view.LayoutInflater
 import androidx.core.content.ContextCompat
+import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import com.jungle.wake_your_friends_up.R
 import com.jungle.wake_your_friends_up.core.BaseFragment
@@ -16,6 +17,8 @@ class OnBoardingFragment : BaseFragment<FragmentOnboardingBinding>() {
     override val bindingInflater: (LayoutInflater) -> FragmentOnboardingBinding
         get() = FragmentOnboardingBinding::inflate
 
+
+    // fixme this should be lateinit to avoid crash
     private val onBoardingAdapter by lazy {
         OnBoardingAdapter(this)
     }
@@ -70,6 +73,8 @@ class OnBoardingFragment : BaseFragment<FragmentOnboardingBinding>() {
     }
 
     private fun onFinishButtonClick() {
-        // TODO Add listener for navigation to start fragment
+        binding.vNextOrFinish.setOnClickListener{
+            findNavController().navigate(OnBoardingFragmentDirections.actionOnBoardingFragmentToStartFragment())
+        }
     }
 }

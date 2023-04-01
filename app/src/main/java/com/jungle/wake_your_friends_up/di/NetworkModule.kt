@@ -2,6 +2,7 @@ package com.jungle.wake_your_friends_up.di
 
 import android.content.Context
 import androidx.viewbinding.BuildConfig
+import com.google.firebase.auth.FirebaseAuth
 import com.google.gson.Gson
 import com.jungle.wake_your_friends_up.data.NetworkManager
 import com.jungle.wake_your_friends_up.data.api.SampleApi
@@ -67,5 +68,8 @@ object NetworkModule {
     @Singleton
     fun provideSampleApi(client: Retrofit): SampleApi =
         client.create(SampleApi::class.java)
+
+
+
 
 }

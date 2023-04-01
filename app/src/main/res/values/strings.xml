@@ -1,11 +1,47 @@
 <resources>
     <string name="app_name">Wake Your Friends Up</string>
-    <!-- Error strings -->
+    <!-- General Strings  -->
+    <string name="password">Password</string>
+    <string name="e_mail">E-mail</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="back_button">Back Button</string>
+
+
+    <!-- Error Strings -->
     <string name="not_connected_try_again">You are currently not connected to the internet. Please try again later.</string>
     <string name="general_error_message">An error occurred while performing network request.</string>
     <!-- TODO: Remove or change this placeholder text -->
+
+
+
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- On Boarding Strings  -->
     <string name="onboarding_first_page">Can\'t you wake up for study meetings?</string>
     <string name="onboarding_second_page">Don\'t be late for any meeting again.</string>
     <string name="onboarding_third_page">Wake up with friends at the same time</string>
+
+    <!-- Start Fragment Strings -->
+    <string name="start_register_description">Register or login to wake up \n at the same time as your friends</string>
+    <string name="start_wake_up_with_your_friends">Wake Up With Your Friends</string>
+    <string name="start_dont_have_an_account">Don\'t have an account?</string>
+
+    <!-- Register Fragment Strings -->
+    <string name="register_are_you_ready">Are you ready to \n wake up early?</string>
+    <string name="register_full_name">Full Name</string>
+    <string name="register_have_account">Do you have an account</string>
+    <string name="register_do_you_have_an_account">Do you have an account</string>
+
+    <!-- Login Fragment Strings -->
+    <string name="login_dont_have_an_account">Don\'t have an account?</string>
+    <string name="login_forgot_password">Forgot Password?</string>
+
+    <!-- Reset Dialog Strings -->
+    <string name="reset_pw_reset_password">Reset Password</string>
+    <string name="reset_pw_we_will_send_email">We will send you the password reset link to your email</string>
+    <string name="reset_pw_cancel">Cancel</string>
+    <string name="reset_pw_send">Send</string>
+
+
 </resources>

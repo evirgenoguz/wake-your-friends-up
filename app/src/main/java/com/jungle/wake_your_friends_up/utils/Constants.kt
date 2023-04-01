@@ -6,4 +6,7 @@ package com.jungle.wake_your_friends_up.utils
 object Constants {
 
     const val BASE_URL = "http://www.sample-base-url/"
+
+    //Firebase Constants
+    const val USER_COLLECTION = "user"
 }

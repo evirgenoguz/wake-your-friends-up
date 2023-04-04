@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
+import com.jungle.wake_your_friends_up.ui.dialog.LoadingDialogFragment
 
 /**
  * An abstract base class for fragments. It has [ViewBinding]
@@ -20,6 +21,10 @@ abstract class BaseFragment<VB : ViewBinding> : Fragment() {
 
     private companion object {
         val TAG_INTERNAL: String = BaseFragment::class.java.simpleName
+    }
+
+    protected val loadingDialog by lazy {
+        LoadingDialogFragment(requireActivity().supportFragmentManager)
     }
 
     // The local _binding parameter which is only available

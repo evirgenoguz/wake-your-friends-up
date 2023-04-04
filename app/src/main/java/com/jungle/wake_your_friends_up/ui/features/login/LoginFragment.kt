@@ -5,18 +5,22 @@ import android.view.LayoutInflater
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.jungle.wake_your_friends_up.R
+import com.jungle.wake_your_friends_up.core.BaseDialogFragment
 import com.jungle.wake_your_friends_up.core.BaseFragment
 import com.jungle.wake_your_friends_up.data.NetworkResult
 import com.jungle.wake_your_friends_up.data.model.request.LoginRequestModel
 import com.jungle.wake_your_friends_up.data.model.request.ResetPasswordRequestModel
 import com.jungle.wake_your_friends_up.databinding.FragmentLoginBinding
 import com.jungle.wake_your_friends_up.ext.observeLiveData
+import com.jungle.wake_your_friends_up.ui.dialog.LoadingDialogFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -25,7 +29,6 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
         get() = FragmentLoginBinding::inflate
 
     private val viewModel by viewModels<LoginViewModel>()
-
 
     override fun setupUi() {
         initListeners()
@@ -38,9 +41,10 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
             observeLiveData(viewModel.resetPassword){
                 when (it) {
                     is NetworkResult.Loading -> {
-
+                        loadingDialog.show()
                     }
                     is NetworkResult.Success -> {
+                        loadingDialog.hide()
                         Toast.makeText(
                             context,
                             "Reset link was sent to",
@@ -60,9 +64,10 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
             observeLiveData(viewModel.login) {
                 when (it) {
                     is NetworkResult.Loading -> {
-
+                        loadingDialog.show()
                     }
                     is NetworkResult.Success -> {
+                        loadingDialog.hide()
                         // TODO: navigate inside the app with uid
                         Toast.makeText(
                             context,

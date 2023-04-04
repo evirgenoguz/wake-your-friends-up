@@ -1,6 +1,7 @@
 package com.jungle.wake_your_friends_up.data.repository
 
 import com.google.firebase.auth.FirebaseAuth
+import com.jungle.wake_your_friends_up.data.api.SampleApi
 import com.jungle.wake_your_friends_up.data.model.request.LoginRequestModel
 import com.jungle.wake_your_friends_up.data.model.request.RegisterRequestModel
 import com.jungle.wake_your_friends_up.data.model.request.ResetPasswordRequestModel

@@ -1,12 +1,9 @@
 package com.jungle.wake_your_friends_up.ext
 
-import android.widget.Button
-import android.widget.EditText
+
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.LiveData
-import com.google.android.material.bottomsheet.BottomSheetBehavior
-import com.google.android.material.bottomsheet.BottomSheetDialog
-import com.jungle.wake_your_friends_up.R
+import com.jungle.wake_your_friends_up.ui.dialog.LoadingDialogFragment
 
 /**
  * Created by Oguz Evirgen on 28.03.2023.

@@ -1,4 +1,4 @@
 # wake-friends-up
-##Main Collaborators
+## Main Collaborators
 - [Burak Taşcı](https://github.com/Burak-Tasci)
 - [Oğuz Evirgen](https://github.com/evirgenoguz)
